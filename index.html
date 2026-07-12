@@ -100,7 +100,21 @@ h1{
   font-size:clamp(40px,4.9vw,68px); font-weight:800; letter-spacing:-.035em;
   line-height:.99; margin:20px 0 28px; text-wrap:balance; max-width:14ch;
 }
-.passfig{display:flex; flex-direction:column; align-items:center; min-width:0; margin:0}
+.passfig{
+  display:flex; flex-direction:column; align-items:center; min-width:0;
+  width:min(302px,86vw); margin:0 auto; position:relative;
+}
+.horse{
+  position:absolute; left:34px; top:-46px; width:195px; height:auto;
+  transform-origin:88% 55%; animation:nod 6s ease-in-out infinite alternate; z-index:0;
+}
+@keyframes nod{from{transform:rotate(-5.5deg)}to{transform:rotate(-2.5deg)}}
+@media (prefers-reduced-motion: reduce){
+  .horse{animation:none; transform:rotate(-4deg)}
+}
+.horse path{fill:var(--ink)}
+.horse .cut{fill:var(--panel)}
+.horse .mane path{stroke:var(--muted)}
 .swing{
   display:flex; flex-direction:column; align-items:center;
   transform-origin:50% 0; animation:sway 7s ease-in-out infinite alternate;
@@ -341,6 +355,7 @@ footer{border-top:1px solid var(--line); margin-top:90px}
 /* ============ RESPONSIVE ============ */
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr; gap:44px}
+  .horse{width:150px; left:18px; top:-30px}
   .plate{grid-template-columns:1fr; gap:40px; padding:44px 36px}
   .p-motif{order:-1; min-height:0}
   h1{max-width:none}
@@ -375,6 +390,30 @@ footer{border-top:1px solid var(--line); margin-top:90px}
         <p class="caps"><span>Product design</span><span class="sep">/</span><span>Mobile &amp; web</span><span class="sep">/</span><span>Smart contracts</span><span class="sep">/</span><span>AI systems</span></p>
       </div>
       <figure class="passfig">
+        <svg class="horse" viewBox="0 0 290 300" aria-hidden="true">
+          <path d="
+            M 54,4 L 96,30 L 82,52
+            C 60,80 40,110 32,146
+            C 24,182 8,220 2,252
+            L 42,266
+            C 66,238 78,222 88,204
+            C 110,190 122,178 140,178
+            C 165,178 185,188 200,196
+            L 232,178 L 222,168
+            Q 245,158 268,148
+            Q 250,110 226,84
+            C 205,60 182,46 162,36
+            L 114,14 L 80,8 Z"/>
+          <g class="mane" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.55">
+            <path d="M 80,44 Q 90,58 84,70"/>
+            <path d="M 62,74 Q 74,90 66,104"/>
+            <path d="M 46,106 Q 58,122 50,138"/>
+            <path d="M 32,142 Q 44,158 36,174"/>
+            <path d="M 18,180 Q 30,196 22,212"/>
+          </g>
+          <circle class="cut" cx="192" cy="78" r="6"/>
+          <circle class="cut" cx="246" cy="156" r="4"/>
+        </svg>
         <div class="swing">
           <div class="strap" aria-hidden="true"></div>
           <div class="pass">
