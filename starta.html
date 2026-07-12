@@ -331,8 +331,11 @@ footer.wrap{padding:70px 28px 60px; border-top:1px solid var(--line); margin-top
 .colophon{font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--faint); line-height:1.9; text-align:right}
 
 /* ============ RESPONSIVE ============ */
+@media (max-width:1199px){
+  .halo{display:none}
+}
 @media (max-width:980px){
-  .hero-grid{grid-template-columns:1fr; gap:44px}
+  .hero-grid{grid-template-columns:minmax(0,1fr); gap:44px}
   .phone-col{order:-1}
   .kpis{grid-template-columns:repeat(2,1fr)}
   .cards3,.stack{grid-template-columns:1fr 1fr}
@@ -348,7 +351,7 @@ footer.wrap{padding:70px 28px 60px; border-top:1px solid var(--line); margin-top
   .colophon{text-align:left}
 }
 @media (max-width:420px){
-  .phone-wrap{transform:scale(.86); transform-origin:top center; margin-bottom:-96px}
+  .phone-wrap{transform:scale(.86) !important; transform-origin:top center; margin-bottom:-96px}
 }
 </style>
 

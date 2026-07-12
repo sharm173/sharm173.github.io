@@ -253,14 +253,14 @@
     background: linear-gradient(165deg, #F2F4F8, #E7EAF2);
     border-radius: 12px; display: grid; place-items: center; padding: 34px 20px;
   }
-  .logo-lockup { display: flex; align-items: center; gap: 12px; }
-  .logo-lockup img { height: 62px; width: auto; }
+  .logo-lockup { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .logo-lockup img { height: clamp(40px, 12vw, 62px); width: auto; }
   .logo-lockup b {
     font-family: 'Quicksand', 'Avenir Next Rounded', 'Avenir Next', sans-serif;
-    font-size: 44px; font-weight: 700; color: #2E3A59; letter-spacing: -.015em;
+    font-size: clamp(26px, 8vw, 44px); font-weight: 700; color: #2E3A59; letter-spacing: -.015em;
   }
 
-  .type-rows { display: grid; gap: 0; }
+  .type-rows { display: grid; grid-template-columns: minmax(0,1fr); gap: 0; }
   .type-row {
     display: flex; align-items: baseline; justify-content: space-between; gap: 18px;
     padding: 12px 2px; border-bottom: 1px dashed var(--line);
