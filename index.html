@@ -100,20 +100,22 @@ h1{
   font-size:clamp(40px,4.9vw,68px); font-weight:800; letter-spacing:-.035em;
   line-height:.99; margin:20px 0 28px; text-wrap:balance; max-width:14ch;
 }
-.passfig{
-  position:relative; display:flex; flex-direction:column; align-items:center;
-  min-width:0; width:min(302px,86vw); margin:0 auto; padding-top:190px;
-}
-.horse{position:absolute; top:-84px; left:-14px; width:310px; z-index:0; pointer-events:none}
-.horse .ink{fill:var(--ink)}
-.horse .cut{fill:var(--bg)}
+.passfig{display:flex; flex-direction:column; align-items:center; min-width:0; margin:0}
 .swing{
-  display:flex; flex-direction:column; align-items:center; position:relative; z-index:1;
-  transform-origin:50% -20px; animation:sway 7s ease-in-out infinite alternate;
+  display:flex; flex-direction:column; align-items:center;
+  transform-origin:50% 0; animation:sway 7s ease-in-out infinite alternate;
 }
 @keyframes sway{from{transform:rotate(-2.2deg)}to{transform:rotate(1.6deg)}}
 @media (prefers-reduced-motion: reduce){
   .swing{animation:none; transform:rotate(-1.8deg)}
+}
+.strap{
+  width:16px; height:56px; background:var(--ink); opacity:.88;
+  border-radius:3px; position:relative; z-index:1; margin-bottom:-4px;
+}
+.strap::after{
+  content:""; position:absolute; bottom:-3px; left:50%; transform:translateX(-50%);
+  width:28px; height:13px; border-radius:4px; background:var(--ink);
 }
 .pass{
   width:min(302px,86vw); background:var(--panel); border:1px solid var(--line);
@@ -339,7 +341,6 @@ footer{border-top:1px solid var(--line); margin-top:90px}
 /* ============ RESPONSIVE ============ */
 @media (max-width:900px){
   .hero-grid{grid-template-columns:minmax(0,1fr); gap:44px}
-  .passfig{margin-top:44px}
   .plate{grid-template-columns:minmax(0,1fr); gap:40px; padding:44px 36px}
   .p-motif{order:-1; min-height:0}
   h1{max-width:none}
@@ -374,37 +375,8 @@ footer{border-top:1px solid var(--line); margin-top:90px}
         <p class="caps"><span>Product design</span> <span class="sep">/</span> <span>Mobile &amp; web</span> <span class="sep">/</span> <span>Smart contracts</span> <span class="sep">/</span> <span>AI systems</span></p>
       </div>
       <figure class="passfig">
-        <svg class="horse" viewBox="0 0 340 340" aria-hidden="true">
-          <path class="ink" d="
-            M 20,340 C 20,326 20,312 22,300 C 27,272 32,250 38,232
-            C 24,234 12,228 6,214 C 16,216 28,210 36,204
-            C 46,176 58,152 72,132 C 56,132 44,124 40,110
-            C 52,116 66,114 76,108 C 90,88 108,72 126,62
-            C 130,42 138,24 150,12 C 156,30 164,44 172,52
-            C 180,44 190,40 198,42 C 196,48 196,54 200,58
-            L 214,70 C 242,50 270,40 298,36 C 312,34 320,40 320,50
-            C 319,60 314,70 307,77 C 312,88 313,100 310,110
-            C 307,123 302,134 295,142 C 288,151 276,156 262,156
-            C 245,157 229,151 218,143 C 209,136 203,129 199,122
-            C 190,147 182,172 175,200 C 167,238 161,270 158,300
-            C 156,315 155,328 155,340 Z"/>
-          <path class="ink" d="M 170,52 Q 188,34 208,42 Q 192,46 182,60 Z"/>
-          <path class="cut" d="M 196,94 Q 212,76 230,86 Q 213,84 198,96 Z"/>
-          <circle class="cut" cx="308" cy="50" r="4.5"/>
-          <g class="cut">
-            <rect x="281" y="74" width="15" height="19" rx="4" transform="rotate(-27 289 74)"/>
-            <rect x="265" y="82" width="15" height="19" rx="4" transform="rotate(-27 273 82)"/>
-            <rect x="249" y="90" width="15" height="19" rx="4" transform="rotate(-27 257 90)"/>
-            <rect x="233" y="98" width="15" height="19" rx="4" transform="rotate(-27 241 98)"/>
-          </g>
-          <g class="cut">
-            <rect x="247" y="123" width="14" height="16" rx="4" transform="rotate(17 254 139)"/>
-            <rect x="263" y="128" width="14" height="16" rx="4" transform="rotate(17 270 144)"/>
-          </g>
-          <path class="cut" d="M 74,108 C 120,126 155,132 194,120 L 194,133 C 155,145 120,139 74,121 Z"/>
-          <path class="ink" d="M 174,132 C 172,185 172,245 173,305 L 189,305 C 190,245 190,185 190,128 Z"/>
-        </svg>
         <div class="swing">
+          <div class="strap" aria-hidden="true"></div>
           <div class="pass">
             <div class="slot" aria-hidden="true"></div>
             <div class="prow"><span>Site pass</span><span>N&ordm; 001</span></div>
